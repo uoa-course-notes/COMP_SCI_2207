@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 2 - HTML Event Demo</title>
+</head>
+<body>
+    <button id="clickBtn" type="button">Click me</button>
+    <input id="textInput" type="text" placeholder="Type something...">
+    <p id="hoverText">Hover over me!</p>
+
+    <!-- Inline JS (good for demonstrating small files, but not a best practice) -->
+    <script>
+        // Mouse click event 
+        clickedAmount = 0;
+        document.getElementById("clickBtn").addEventListener("click", function(){
+            alert("Button clicked!");
+            console.log(`The button with id=clickBtn has been clicked!`);
+            // clickedAmount++;
+            if (++clickedAmount == 3){
+                console.log(`You've clicked ${clickedAmount} times.`);
+                console.log("Alright, you should stop clicking!");
+                document.body.style.backgroundColor = "purple";
+            }
+        });
+
+        // Keyboard Input event
+        document.getElementById("textInput").addEventListener("input", function(){
+            console.log("Input changed to:", this.value);
+        });
+
+        // Mouse hover event order
+        document.getElementById("hoverText").addEventListener("mouseover", function(){
+            this.style.color= "red";
+            this.style.fontSize = "50px";
+        });
+
+        // Mouse Hover Event Out 
+        document.getElementById("hoverText").addEventListener("mouseout", function(){
+            this.style.color = "green";
+            this.style.fontSize = "32px";
+        });
+
+        // Form submit event (creating an entire html element u)
+        let form = document.createElement("form");
+        form.innerHTML = `<input type="text" name="name">
+                          <button type="submit">Submit</button>`;
+        document.body.appendChild(form);
+
+        form.addEventListener("submit", function(event){
+            event.preventDefault(); // Prevent acutal form submission
+            
+            console.log(`Dynamic form submitted with content: ${form.innerContent}`);
+            alert("Dynamically created form submitted!");
+        });
+
+    </script>
+</body>
+</html>

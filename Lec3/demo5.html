@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 5 - Conditional Statements</title>
+</head>
+<body>
+    <!-- Notice that label's for attribute's value coincides wuth input's attribute's-->
+    <label for="ageInput">Enter your age:</label>
+    <input type="number" id="ageInput">
+    <button type="button" onclick="checkAge()">Check</button>
+
+    <p id="result"></p>
+    <script>
+        function checkAge(){
+            let age = document.getElementById("ageInput").value;
+            let result = document.getElementById("result");
+            if(age < 18){
+                result.textContent = "You are a minor.";
+            } else if (age < 65){
+                result.textContent = "You are an adult.";
+            } else{
+                result.textContent = "You are a senior.";
+            }
+        }
+    </script>
+</body>
+</html>

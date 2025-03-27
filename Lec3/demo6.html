@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 6 - Switch example</title>
+</head>
+<body>
+    <label for="colourSelect">Choose a colour:</label>
+    <select id="colourSelect">
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+    </select>
+    <button type="button" onclick="changeColour()">Apply</button>
+    <script>
+        function changeColour(){
+            let colour = document.getElementById("colourSelect").value;
+            document.body.style.backgroundColor = colour;
+            /*switch(colour){ // check colour's value (set from above)
+                case "red":
+                    document.body.style.backgroundColor = "red";
+                    break;
+                case "green":
+                    document.body.style.backgroundColor = "green";
+                    break;
+                case "blue":
+                    document.body.style.backgroundColor = "blue";
+                    break;
+                default:
+                    document.body.style.backgroundColor = "white";
+            }*/
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+Real-world examples of Client-Server Apps
+
+
+https://api.x.com/2/tweets/search/recent?
+
+
+- Setting up a Node and Express project
+- 
+
+
+
+
++++ HTTP life Cycle and Express 
+- app.use() sets up the middleware to process every request 
+- next() hands control to the next middleware or route
+- res.send() ends the cycle and sends a response. 
+

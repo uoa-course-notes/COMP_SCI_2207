@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz demo</title>
+</head>
+<body>
+    <label for="in1"></label>
+    <input type="text" id="in1" class="in" name="name_given">
+    <p id="output">You've entered: </p>
+    <script>
+        
+        text = document.querySelector('input[name_given]').innerText;
+        P_element = document.getElementById('output');
+        P_element += text;
+    </script>
+</body>
+</html>

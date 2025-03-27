@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 7 - loops</title>
+</head>
+<body>
+    <button type="button" onclick="generateList()">Generate Numbers</button>
+    <ul id="numberList"></ul>
+    <input type="number" id="limit">
+    <button type="button" onclick="countUp()">Start Counting</button>
+    <p id="counterOutput"></p>
+    <h4>Practicing with do-while loop</h4>
+    <!-- Do-while loop -->
+     <label for="minValue">Choose min-value:</label>
+    <input id="minValue" type="number">
+     <label for="minValue">Choose max-value:</label>
+     <input id="maxValue" type="number">
+     <button type="button" onclick="showNumber()">Show Numbers</button>
+     <p id="output"></p>
+     <h4>Breaking out of loop when certain conditions are satisfied</h4>
+     <button type="button" onclick="runLoop()">Run Loop</button>
+     <p id="loopOutput"></p>
+     <!--  -->
+     <h4>Try-catch block demo</h4>
+     <label for="numInput">Enter a number only:</label>
+     <input type="text" id="numInput">
+     <button type="button" onclick="divideByTwo()">Divide</button>
+     <p id="result_division"></p>
+    <script>
+        function generateList(){
+            let list = document.getElementById("numberList");
+            list.innerHTML = ""; // Clear previous list
+
+            for (let i = 1; i<= 5; i++){
+                let listItem = document.createElement("li");
+                listItem.textContent = "Number: " + Math.random().toFixed(2);
+                list.appendChild(listItem);
+            }
+        }
+
+        function countUp(){
+            let limit = document.getElementById("limit").value;
+            let output = document.getElementById("counterOutput");
+            output.innerHTML = ""; 
+
+            let i = 1;
+            while (i <= limit){
+                output.innerHTML += i + " ";
+                i++;
+            }
+        }
+        
+        function showNumber(){
+            let output = document.getElementById("output");
+            output.innerHTML = "";
+
+            let i_min = document.getElementById("minValue").value;
+            let i_max = document.getElementById("maxValue").value;
+            if (i_min > i_max){
+                exit();
+            }
+            let i = i_min;
+            do{
+                output.innerHTML += i + " ";
+                i++;
+            }while(i <= i_max);
+        }
+    
+        function runLoop(){
+            let output = document.getElementById("loopOutput");
+            output.innerHTML= "";
+
+            let skipped_num = 10;
+            let i_max = 100;
+            let i_min = 5;
+            let stopped_at = 50;
+            for (let i = i_min; i<= i_max; i++){
+                if (i == skipped_num) continue; // skip 3
+                if (i == stopped_at) break; // stop at 7
+                output.innerHTML += i + " ";
+            }
+        }
+
+
+        // Try-catch
+        function divideByTwo(){
+            let numInput = document.getElementById("numInput").value;
+            let result = document.getElementById("result_division");
+            try {
+                if (isNaN(numInput)){
+                    throw "Not a number";
+                }
+                let answer = numInput / 2;
+                result.textContent = "Result: " + answer;
+            }catch(error){
+                    result.textContent = "Error: " + error;
+            }
+        }
+        
+    </script>
+</body>
+</html>
