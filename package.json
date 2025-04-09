@@ -1,29 +1,16 @@
 {
-  "name": "comp_sci_2207",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "comp-sci-2207",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "nodemon ./src/index.mjs",
-    "start": "node ./src/index.mjs"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pisethTang/COMP_SCI_2207.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module",
-  "bugs": {
-    "url": "https://github.com/pisethTang/COMP_SCI_2207/issues"
-  },
-  "homepage": "https://github.com/pisethTang/COMP_SCI_2207#readme",
   "dependencies": {
-    "express": "^5.1.0"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.9"
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1"
   }
 }
