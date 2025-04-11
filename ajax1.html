@@ -3,34 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajax 1 - Text File</title>
+    <title>Ajax</title>
 </head>
 <body>
-    <button id="button" type="button">Get Text File</button>
-
-
+    <button type="button" onclick="showCountries()">Show Countries</button>
+    <div id="feed"></div>
     <script>
-        // Create an event listener 
-        document.getElementById("button").addEventListener("click", loadText);
-
-        function loadText(){
-            // console.log("Button clicked");
-            // Create XHR Object
-            var xhr = new XMLHttpRequest();
-            // OPEN - type, url/file, async 
-            // console.log(xhr);
-            xhr.open('GET', 'sample.txt', true);
+        function showCountries(){
+            let xhr = new XMLHttpRequest(); // xhr := xml http request 
+            xhr.open('GET', 'https://restcountries.com/v3.1/all', true); // use open() to initialize a request 
+            // true ==> asynchronous function 
+            
+            // Creating a callback() function to handle response's status code 
             xhr.onload = function(){
-                if(this.status === 200){ // or we can write xhr.status
-                    console.log(this.responseText);
+                if (xhr.status === 200){
+                    console.log('Success');
+                    let countries = JSON.parse(this.response);
+                    
+                    console.log("Retrieved: ");
+                    console.log(countries);
+                    // console.log("which is of type: " , typeof(countries));
+                    countries.forEach(country => {
+                        const countryCard = document.createElement('div');
+                        const countryCardImage = document.createElement('img');
+                        countryCard.innerHTML = country.name.common;
+                        countryCardImage.src= country.flags.png;
+                        // console.log(country.flags.png);
+                        // console.log(country.name.common);
+                        document.getElementById("feed").append(countryCard, countryCardImage);
+                    });
                 }
-            }
-            // Sends request to server 
-            xhr.send();
-            // HTTP Statuses
-            // 200: OK
-            // 403: Forbidden
-            // 404: Not found
+            };
+            xhr.send(); //sending the request. 
         }
     </script>
 </body>

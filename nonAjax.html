@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-Ajax</title>
+</head>
+<body>
+    <h1>Demonstrating the same phenomenon without ajax.</h1>
+    <button type="button" onclick="showCountries()">Show countries</button>
+    <script>
+        async function showCountries(){
+            let url_pathway = "https://restcountries.com/v3.1/all";
+            let request = new Request(
+                url_pathway, 
+                'GET'
+            );
+
+            let result = await fetch(request); // can only be used with async functions that are at the top-level of the module 
+            let response_countries = await resule.json();
+            console.log(response);
+            // response_countries.forEach(country => {
+            //     country.name.common
+            // });
+
+        }
+    </script>
+</body>
+</html>
