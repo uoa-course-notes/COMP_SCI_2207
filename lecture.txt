@@ -1,20 +1,144 @@
-+ Creating databases in such a way that we won't need to modify it too many times in the future. We want to preserve the "integrity"" of the data ...
++ Open Web Applicaion Security Project
+- web applications are more open to attacks than local applications. 
+
+
++ Terminology: 
+- Vulnerability: a weakness or flaw in software, hardware or processes that could lead to a security breach 
+- Threat: 
+- Threat agent
+- Risk 
+- Mitigation: action taken to reduce the risk of a threat 
+
++ Elements of a secure system 
+- Authentication 
+- Availability ... etc
+
+
++ Basic steps for checking security 
+- Identify vulnerabilities: use cheatsheet at owasp. 
+- Identify threats for any vulnerabilities
+- Identify the level of risk 
+- Take action 
+
+
++ Securing your web applications 
+- Encryption: use HTTPs, enforce https on all traffic to our websites. 
+- Use security zones to ensure only authorized users may access the content Use middleware to enforce use permissions across an entite zone.
+- Validate all inputs and outputs: using prepared statements. Express-validator has several functions for validating and escaping user inputs. Use innerText instead of innerHTML. 
+
+
+- Use OpenID where possible to implement password authentication. 
+- Allow users to enter all characters (min 160) as long as the it's secure enough. 
+- Don't store passwords in plain text instead use hashing algorithms -- such as Argon2, bcrypt. 
+- But a hash alone is not enough as there is such a thing called rainbow look-up tables (everyone got together and tries to generate a huge look up tables of hashes).
+  So we should salt our password as well =====> Salted hashing -- currently accepted security standard of storing credentials. 
+- Assume security will be comprimised (plan ahead if a breach occurs, 2FA)
+- Write secure codes -- get a team to review them, run the testing guides over it. 
 
 
 
 
-Referential Integrity (relationship integrity): 
-+ Declaring foreign keys for a table to refer to another. We can define constraints such as "ON DELETE NULL",
-
-
-Value Integrity 
-+ Use check clauses (like a Boolean check).
-+ UNIQUE (no rows are the same), NOT NULL, 
-+ AUTO_INCREMENT 
-+ PRIMARY KEY: UNIQUE and NOT NULL.
-
-
-+ JOINING TABLES: 
++ Common threats and Vulnerabilities (3 most prevalent)
+- XSS: cross-site-scripting, sanitize data (so an input containing js can occur) 
+- SQL Injection: an attack on an app's database (can delete/add records, can pretend to be a user, etc.) 
+- CSRF/XSRF: Cross Site Request Forgery -- occurs when a website allows requests that originated from other websites.
 - 
+
+
+- Use single-token session. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
